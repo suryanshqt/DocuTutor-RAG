@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DocuTutor | Professional Study Engine</title>
+    <!-- Modern font import -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1>DocuTutor Engine</h1>
+        <p>Professional RAG-based Document Analysis & AI Tutoring System</p>
+      </header>
+
+      <div class="grid-container">
+        <!-- Indexing Card -->
+        <section class="card full-width">
+          <h2>Document Indexing</h2>
+          <p>
+            Upload a technical PDF. We'll vectorize the contents into our local
+            Qdrant knowledge base for lightning-fast semantic retrieval.
+          </p>
+          <input type="file" id="pdfFile" accept="application/pdf" />
+          <button onclick="handleUpload()" id="uploadBtn">
+            Execute Indexing Pipeline
+          </button>
+          <div id="uploadStatus" class="status-msg"></div>
+        </section>
+
+        <!-- Tutor Card -->
+        <section class="card">
+          <h2>AI Tutor Query</h2>
+          <p>
+            Interrogate the indexed document. The engine retrieves precise
+            context and cites exact page numbers for every answer.
+          </p>
+          <input
+            type="text"
+            id="chatQuery"
+            placeholder="E.g. What is the lifecycle of a Node application?"
+          />
+          <button onclick="handleChat()" id="chatBtn">Submit Query</button>
+          <div id="chatStatus" class="status-msg"></div>
+          <div id="chat-results"></div>
+        </section>
+
+        <!-- Quiz Card -->
+        <section class="card">
+          <h2>Automated Assessment</h2>
+          <p>
+            Generate structured JSON-based assessments directly from the
+            textbook's context to test your knowledge.
+          </p>
+          <input
+            type="text"
+            id="quizTopic"
+            placeholder="E.g. npm dependencies and package.json"
+          />
+          <button onclick="handleQuiz()" id="quizBtn">
+            Generate Assessment
+          </button>
+          <div id="quizStatus" class="status-msg"></div>
+          <div id="quiz-results"></div>
+        </section>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
